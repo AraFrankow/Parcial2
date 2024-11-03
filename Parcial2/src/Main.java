@@ -23,17 +23,16 @@ public class Main {
 					opcion = JOptionPane.showOptionDialog(null, "Elija su rol", null, 0, 0, null, opciones, opciones[0]);
 					switch (opcion) {
 					case 0:
-						yo.RegistrarAnimal();
 						yo.sacarTurno();
 						break;
 
 					case 1:
-						yo2.Tratamiento();
-						yo2.Turno();
+							yo2.Tratamiento();
+							yo2.Turno();
 						break;
 					
 					case 2:
-						JOptionPane.showMessageDialog(null, "Saliedo...");
+						JOptionPane.showMessageDialog(null, "Saliendo...");
 						break;
 					}
 				} while (opcion!=2);

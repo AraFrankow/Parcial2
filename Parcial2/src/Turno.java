@@ -21,7 +21,7 @@ public class Turno {
 		return horario_dia;
 	}
 	public void setHorario_dia(LocalDate horario_dia) {
-		this.horario_dia = LocalDate.of(validarNumeros("Ingrese año para el turno"), validarNumeros("Ingrese mes para el turno"), validarNumeros("Ingrese dia para el turno"));
+		this.horario_dia = LocalDate.of(2024, 11, validarNumeros("Ingrese dia para el turno"));
 		JOptionPane.showMessageDialog(null, "Agendando proximo turno...");
 	}
 	public String getMotivo() {

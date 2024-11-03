@@ -11,6 +11,9 @@ public class Veterinario extends Turno{
 		super(horario_dia, motivo, diagnostico, costo);
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+
 	public int getEdadAnimal() {
 		return edadAnimal;
 	}
@@ -33,16 +36,25 @@ public class Veterinario extends Turno{
 	
 	
 	public void Tratamiento() {
-		if (getMascota().getEspecie().equals("Gato")) {
+		Mascota mia = new Mascota(null, null);
+		String animal;
+		String[] opciones = {"Gato", "Ave", "Perro"};
+		int opcion = JOptionPane.showOptionDialog(null, "Elija el animal que tiene", null, 0, 0, null, opciones, opciones[0]);
+		if (opcion==0) {
+			mia.setEspecie("Gato");
 			Gato gatito = new Gato(null, null, null, 0);
 			gatito.Tratamiento();
-		}else if(getMascota().getEspecie().equals("Ave")){
+		} else if(opcion==1) {
+			mia.setEspecie("Ave");
 			Ave aveMini = new Ave(null, null, null, 0);
 			aveMini.Tratamiento();
-		}else {
+		} else {
+			mia.setEspecie("Perro");
 			Perro perrito = new Perro(null, null, null, 0);
 			perrito.Tratamiento();
 		}
+		String nombreAni = JOptionPane.showInputDialog("Ingrese el nombre del animal");
+		mia.setNombre(nombreAni);
 	}
 
 	public void Turno() {
@@ -68,6 +80,8 @@ public class Veterinario extends Turno{
 		}
 		
 	}
+	
+	
 	
 	@Override
 	public String toString() {
