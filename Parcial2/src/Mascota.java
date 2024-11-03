@@ -1,16 +1,13 @@
 
-public class Mascota {
+public class Mascota extends Cliente{
 	private String especie;
 	private String nombre;
 	private Cliente dueño;
 	
-	public Mascota(String especie, String nombre, Cliente dueño) {
-		super();
-		this.especie = especie;
-		this.nombre = nombre;
-		this.dueño = dueño;
+	public Mascota(String nombre, String contrasenia) {
+		super(nombre, contrasenia);
+		// TODO Auto-generated constructor stub
 	}
-	
 	public String getEspecie() {
 		return especie;
 	}

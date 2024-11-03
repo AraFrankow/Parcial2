@@ -1,8 +1,8 @@
 import javax.swing.JOptionPane;
 
 public class Usuario {
-	private String nombre;
-	private String contrasenia;
+	protected String nombre;
+	protected String contrasenia;
 
 	public Usuario(String nombre, String contrasenia) {
 		super();
@@ -39,22 +39,22 @@ public class Usuario {
 	}
 	
 	public boolean Registrarse() {
-		String nombre = JOptionPane.showInputDialog("Ingrese el nombre de usuario para registrarse");
-		if (ValidarNombre(nombre)==true) {
-			String contrasenia = JOptionPane.showInputDialog("Ingrese una contraseña que incluya mayus, minus, numero y 6 caracteres");
-			if (ValidarContrasenia(contrasenia)==true) {
-				JOptionPane.showMessageDialog(null, "Registro completado... Volviendo a la pagina principal...");
-				setContrasenia(contrasenia);
-				setNombre(nombre);
-				return true;
+			String nombre = JOptionPane.showInputDialog("Ingrese el nombre de usuario para registrarse");
+			if (ValidarNombre(nombre)==true) {
+				String contrasenia = JOptionPane.showInputDialog("Ingrese una contraseña que incluya mayus, minus, numero y 6 caracteres");
+				if (ValidarContrasenia(contrasenia)==true) {
+					JOptionPane.showMessageDialog(null, "Registro completado... Volviendo a la pagina principal...");
+					setContrasenia(contrasenia);
+					setNombre(nombre);
+					return true;
+				}else {
+					JOptionPane.showMessageDialog(null, "La contraseña no cumple lo pedido");
+					return false;
+				}
 			}else {
-				JOptionPane.showMessageDialog(null, "La contraseña no cumple lo pedido");
+				JOptionPane.showMessageDialog(null, "El nombre no cumple con lo pedido");
 				return false;
-			}
-		}else {
-			JOptionPane.showMessageDialog(null, "El nombre no cumple con lo pedido");
-			return false;
-		}
+			}		
 	}
 	
 	public static boolean ValidarNombre(String nombre) {
