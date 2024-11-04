@@ -16,7 +16,7 @@ public class Ave extends Veterinario{
 		switch (opcion) {
 		case 0:
 			JOptionPane.showMessageDialog(null, "Viendo la cabeza...");
-			int num = (int) Math.random()*2+1;
+			int num = (int) (Math.random()*2+1);
 			if (num==1) {
 				JOptionPane.showMessageDialog(null, "Su cabeza esta bien");
 			} else {
@@ -26,7 +26,7 @@ public class Ave extends Veterinario{
 
 		case 1:
 			JOptionPane.showMessageDialog(null, "Viendo las alas y las patas...");
-			num = (int) Math.random()*5+1;
+			num = (int) (Math.random()*5+1);
 			if (num==1) {
 				JOptionPane.showMessageDialog(null, "Sus alas y patas estan bien");
 			} else if(num==2){
@@ -42,7 +42,7 @@ public class Ave extends Veterinario{
 			
 		case 2:
 			JOptionPane.showMessageDialog(null, "Viendo el cuerpo...");
-			num = (int) Math.random()*3+1;
+			num = (int) (Math.random()*3+1);
 			if (num==1) {
 				JOptionPane.showMessageDialog(null, "Su cuerpo esta bien");
 			} else if(num==2){

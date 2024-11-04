@@ -11,9 +11,6 @@ public class Veterinario extends Turno{
 		super(horario_dia, motivo, diagnostico, costo);
 		// TODO Auto-generated constructor stub
 	}
-	
-	
-
 	public int getEdadAnimal() {
 		return edadAnimal;
 	}

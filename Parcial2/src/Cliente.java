@@ -8,7 +8,6 @@ public class Cliente extends Turno{
 	
 	public Cliente(LocalDate horario_dia, String motivo, String diagnostico, double costo) {
 		super(horario_dia, motivo, diagnostico, costo);
-		
 	}
 	public String getMail() {
 		return mail;
@@ -17,6 +16,12 @@ public class Cliente extends Turno{
 		this.mail = mail;
 	}
 	
+	public Turno getTurno() {
+		return turno;
+	}
+	public void setTurno(Turno turno) {
+		this.turno = turno;
+	}
 	public boolean verFecha() {
 		LocalDate ahora = LocalDate.of(2024, 11, validarNumeros("Ingrese el dia que es hoy"));
 		if (ahora.equals(getHorario_dia())) {
@@ -25,8 +30,6 @@ public class Cliente extends Turno{
 			JOptionPane.showMessageDialog(null, "Todavia falta para su consulta");
 			return false;
 		}
-		
-		
 	}
 	
 	public void sacarTurno() {

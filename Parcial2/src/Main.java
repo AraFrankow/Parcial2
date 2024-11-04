@@ -6,7 +6,6 @@ public class Main {
 	Usuario uno = new Usuario(null, null);
 	Cliente yo = new Cliente(null, null, null, 0);
 	Veterinario yo2 = new Veterinario(null, null, null, 0);
-	Turno a = new Turno(null, null, null, 0);
 		String[] menu = {"Asignar usuario y contraseña", "Iniciar Sesion", "Salir"};
 		String eleccion;
 		do {
@@ -29,16 +28,14 @@ public class Main {
 							break;
 	
 						case 1:
-							
 							if (yo.verFecha()==true) {
 								yo2.Tratamiento();
 								yo2.Turno();
 							}
-							
 							break;
 						
 						case 2:
-							JOptionPane.showMessageDialog(null, a);
+							JOptionPane.showMessageDialog(null, yo.getTurno());
 							break;
 						
 						case 3:
@@ -47,7 +44,6 @@ public class Main {
 						}
 					} while (opcion!=3);
 				}
-
 				break;
 				
 			case "Salir":
@@ -55,7 +51,5 @@ public class Main {
 				break;
 			}
 		} while (!eleccion.equals("Salir"));
-
 	}
-
 }
