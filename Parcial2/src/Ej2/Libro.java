@@ -1,13 +1,13 @@
 package Ej2;
 
-public class Libro {
+public class Libro{
 	private String nombre;
 	private String autor;
 	private Double precio;
 	private int cantidad;
 	private String genero;
 	
-	public Libro(String nombre, String autor, Double precio, int cantidad, String genero) {
+	public Libro(String nombre, String autor, Double precio, int cantidad, String genero, int cantGenTerror, int cantGenAventura, int cantGenFiccion) {
 		super();
 		this.nombre = nombre;
 		this.autor = autor;
@@ -45,6 +45,12 @@ public class Libro {
 	}
 	public void setGenero(String genero) {
 		this.genero = genero;
+	}
+
+	@Override
+	public String toString() {
+		return "Libro [nombre=" + nombre + ", autor=" + autor + ", precio=" + precio + ", cantidad=" + cantidad
+				+ ", genero=" + genero + "]";
 	}
 	
 	 

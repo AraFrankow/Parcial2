@@ -10,12 +10,8 @@ public class Admin {
 				nombre = JOptionPane.showInputDialog("Ingrese el nombre del libro otra vez");
 			} while (ValidarNombre(nombre)==false);
 		}
-		String autor = JOptionPane.showInputDialog("Ingrese el autor del libro");
-		if (ValidarNombre(autor)==false) {
-			do {
-				autor = JOptionPane.showInputDialog("Ingrese el autor del libro otra vez");
-			} while (ValidarNombre(autor)==false);
-		}
+		String[] autores = { "Steaphen King", "Julio Verne", "Ray Bradbury"};
+		String eleccion = (String)JOptionPane.showInputDialog(null, "Que quiere hacer?", null, 0, null, autores, autores[0]);
 		Double precio = Double.parseDouble(JOptionPane.showInputDialog("Ingrese el valor del libro"));
 		if (precio<0) {
 			do {
@@ -28,13 +24,9 @@ public class Admin {
 				cantidad = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la cantidad de libros que hay otra vez"));
 			} while (cantidad<0);
 		}
-		String genero = JOptionPane.showInputDialog("Ingrese el genero del libro");
-		if (ValidarNombre(genero)==false) {
-			do {
-				genero = JOptionPane.showInputDialog("Ingrese el genero del libro otra vez");
-			} while (ValidarNombre(genero)==false);
-		}
-		Libro nuevo = new Libro(nombre, autor, precio, cantidad, genero);
+		String[] genero = { "Terror", "Aventura", "Ciencia Ficcion"};
+		String eleccionGen = (String)JOptionPane.showInputDialog(null, "Que quiere hacer?", null, 0, null, genero, genero[0]);
+		Libro nuevo = new Libro(nombre, eleccion, precio, cantidad, eleccionGen, 0, 0, 0);
 		for (Libro item : Libreria.getStock()) {
 			if (item.getNombre().equals(nuevo.getNombre())) {
 				item.setCantidad( item.getCantidad() + nuevo.getCantidad());
