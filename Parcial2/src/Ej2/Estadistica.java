@@ -9,7 +9,7 @@ public class Estadistica {
         for (Libro libro : Libreria.getStock()) {
             totalVentas += libro.getVendido();
         }
-        JOptionPane.showMessageDialog(null, "En total se han vendido " + totalVentas + " libros.");
+        JOptionPane.showMessageDialog(null, "En total se han vendido " + totalVentas + " libros");
     }
     
     public void masVendidoGenero() {
@@ -44,9 +44,9 @@ public class Estadistica {
         
         int king = 0, verne = 0, bradbury = 0;
         for (Libro libro : Libreria.getStock()) {
-            king += libro.getCantKing();
-            verne += libro.getCantVerne();
-            bradbury += libro.getCantBradbury();
+        	king += libro.getCantKing();
+        	verne += libro.getCantVerne();
+        	bradbury += libro.getCantBradbury();
         }
         
         if (king > maxVentas) {
@@ -58,9 +58,9 @@ public class Estadistica {
             autorMasVendido = "Verne";
         }
         if (bradbury > maxVentas) {
-            autorMasVendido = "Bradbury";
+        	 maxVentas = bradbury;
+        	 autorMasVendido = "Bradbury";
         }
-        
-        JOptionPane.showMessageDialog(null, "El autor más vendido es " + autorMasVendido);
+        JOptionPane.showMessageDialog(null, "El autor mas vendido es "+autorMasVendido);
     }
 }

@@ -23,7 +23,4 @@ public class Libreria {
 		return "Libreria [stock=" + stock + "]";
 	}
 
-	public void RegistrarVenta() {
-		
-	}
 }

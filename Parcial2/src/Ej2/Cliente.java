@@ -8,25 +8,19 @@ public class Cliente extends Libro{
 		super(nombre, autor, precio, cantidad, genero, cantGenTerror, cantGenAventura, cantGenFiccion, cantKing, cantVerne, cantBradbury, vendido);
 		// TODO Auto-generated constructor stub
 	}
-	
-	@Override
-	public void setCantidad(int cantidad) {
-		super.setCantidad(cantidad);
-	}
-	
-	
+		
 	public void ComprarLibro() {
 		String criterio = JOptionPane.showInputDialog("Ingrese el nombre del libro que quiere comprar");
         for (Libro elemento : Libreria.getStock()) {
             if (elemento.getNombre().equalsIgnoreCase(criterio)) {
                 JOptionPane.showMessageDialog(null, "El libro " + elemento.getNombre() + " está disponible, su valor es: " + elemento.getPrecio());
                 int opcion = JOptionPane.showConfirmDialog(null, "¿Lo quieres comprar?");
-                if (opcion == JOptionPane.YES_OPTION) {
+                if (opcion == 0) {
                     if (elemento.getCantidad() <= 0) {
                         JOptionPane.showMessageDialog(null, "No hay libros disponibles");
                     } else {
                         JOptionPane.showMessageDialog(null, "Comprando...");
-                        elemento.registrarVenta(); // Llama a registrarVenta() para actualizar las estadísticas
+                        elemento.registrarVenta();
                         JOptionPane.showMessageDialog(null, "Compra realizada. Total vendido: " + elemento.getVendido());
                     }
                 }
