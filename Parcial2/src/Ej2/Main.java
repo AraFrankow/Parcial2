@@ -7,7 +7,8 @@ public class Main {
 	public static void main(String[] args) {
 		Admin yo = new Admin();
 		Usuario otro = new Usuario("", "");
-		Cliente yoComprador = new Cliente(null, null, null, 0, null, 0, 0, 0);
+		Cliente yoComprador = new Cliente(null, null, null, 0, null, 0, 0, 0, 0, 0, 0, 0);
+		Estadistica verlo = new Estadistica();
 		String[] menu = {"Registrarse", "Iniciar Sesion", "Salir"};
 		String eleccion;
 		do {
@@ -20,7 +21,7 @@ public class Main {
 			case "Iniciar Sesion":
 				otro.IniciarSesion();
 				if (otro.estaLogueado()==true) {
-					String[] opciones = { "Cliente", "Admin", "Salir" };
+					String[] opciones = { "Cliente", "Admin", "Estadisticas", "Salir" };
 					int opcion;
 					do {
 						opcion = JOptionPane.showOptionDialog(null, "Elija su rol", null, 0, 0, null, opciones, opciones[0]);
@@ -55,10 +56,35 @@ public class Main {
 							break;
 						
 						case 2:
+							String[] Estadisticas = { "Ver ventas totales", "Genero mas vendido", "Autor mas vendido", "Salir" };
+							int ver;
+							do {
+								ver = JOptionPane.showOptionDialog(null, "Elija su rol", null, 0, 0, null, Estadisticas, Estadisticas[0]);
+								switch (ver) {
+								case 0:
+									verlo.calcularTotalVentas();
+									break;
+	
+								case 1:
+									verlo.masVendidoGenero();
+									break;
+									
+								case 2:
+									verlo.masVendidoAutor();
+									break;
+								
+								case 3:
+									JOptionPane.showMessageDialog(null, "Saliendo...");
+									break;
+								}
+							} while (ver!=3);
+							break;
+						
+						case 3:
 							JOptionPane.showMessageDialog(null, "Saliendo...");
 							break;
 						}
-					} while (opcion!=2);
+					} while (opcion!=3);
 				}else {
 					JOptionPane.showMessageDialog(null, "No iniciaste sesion");
 				}

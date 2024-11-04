@@ -1,11 +1,12 @@
+import java.time.LocalDate;
 
 public class Mascota extends Cliente{
 	private String especie;
 	private String nombre;
 	private Cliente dueño;
 	
-	public Mascota(String nombre, String contrasenia) {
-		super(nombre, contrasenia);
+	public Mascota(LocalDate horario_dia, String motivo, String diagnostico, double costo) {
+		super(horario_dia, motivo, diagnostico, costo);
 		// TODO Auto-generated constructor stub
 	}
 	public String getEspecie() {

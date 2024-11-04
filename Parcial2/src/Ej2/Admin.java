@@ -26,7 +26,7 @@ public class Admin {
 		}
 		String[] genero = { "Terror", "Aventura", "Ciencia Ficcion"};
 		String eleccionGen = (String)JOptionPane.showInputDialog(null, "Que quiere hacer?", null, 0, null, genero, genero[0]);
-		Libro nuevo = new Libro(nombre, eleccion, precio, cantidad, eleccionGen, 0, 0, 0);
+		Libro nuevo = new Libro(nombre, eleccion, precio, cantidad, eleccionGen, 0, 0, 0, 0, 0, 0, 0);
 		for (Libro item : Libreria.getStock()) {
 			if (item.getNombre().equals(nuevo.getNombre())) {
 				item.setCantidad( item.getCantidad() + nuevo.getCantidad());

@@ -4,8 +4,8 @@ import javax.swing.JOptionPane;
 
 public class Cliente extends Libro{
 
-	public Cliente(String nombre, String autor, Double precio, int cantidad, String genero, int cantGenTerror, int cantGenAventura, int cantGenFiccion) {
-		super(nombre, autor, precio, cantidad, genero, cantGenTerror, cantGenAventura, cantGenFiccion);
+	public Cliente(String nombre, String autor, Double precio, int cantidad, String genero, int cantGenTerror, int cantGenAventura, int cantGenFiccion, int cantKing, int cantVerne, int cantBradbury, int vendido) {
+		super(nombre, autor, precio, cantidad, genero, cantGenTerror, cantGenAventura, cantGenFiccion, cantKing, cantVerne, cantBradbury, vendido);
 		// TODO Auto-generated constructor stub
 	}
 	
@@ -15,30 +15,23 @@ public class Cliente extends Libro{
 	}
 	
 	
-	public Libro ComprarLibro() {
-		String criterio = JOptionPane.showInputDialog("Ingrese nombre del libro que quiera comprar");
-		for (Libro elemento : Libreria.getStock()) {
-			 if (elemento.getNombre().equals(criterio)) {
-				 JOptionPane.showMessageDialog(null, "El libro "+elemento+" que estas buscando está disponible, su valor es de: "+elemento.getPrecio());
-				 int opcion = JOptionPane.showConfirmDialog(null, "Lo querés comprar?");
-				 if (opcion==0) {
-					JOptionPane.showMessageDialog(null, "Comprado...");
-					setCantidad(getCantidad()-1);
-					if (elemento.getAutor().contains("King")) {
-						int cantGenTerror =0;
-						cantGenTerror = cantGenTerror+1;
-					} else if(elemento.getAutor().contains("Verne")) {
-						int cantGenAventura =0;
-						cantGenAventura = cantGenAventura+1;
-					} else {
-						int cantGenFiccion =0;
-						cantGenFiccion = cantGenFiccion+1;
-					}
-				}
-			 }
-		}
-		JOptionPane.showMessageDialog(null, "No hay libros diponibles o el nombre que ingresaste no existe en nuestra libreria");
-		return null;
+	public void ComprarLibro() {
+		String criterio = JOptionPane.showInputDialog("Ingrese el nombre del libro que quiere comprar");
+        for (Libro elemento : Libreria.getStock()) {
+            if (elemento.getNombre().equalsIgnoreCase(criterio)) {
+                JOptionPane.showMessageDialog(null, "El libro " + elemento.getNombre() + " está disponible, su valor es: " + elemento.getPrecio());
+                int opcion = JOptionPane.showConfirmDialog(null, "¿Lo quieres comprar?");
+                if (opcion == JOptionPane.YES_OPTION) {
+                    if (elemento.getCantidad() <= 0) {
+                        JOptionPane.showMessageDialog(null, "No hay libros disponibles");
+                    } else {
+                        JOptionPane.showMessageDialog(null, "Comprando...");
+                        elemento.registrarVenta(); // Llama a registrarVenta() para actualizar las estadísticas
+                        JOptionPane.showMessageDialog(null, "Compra realizada. Total vendido: " + elemento.getVendido());
+                    }
+                }
+            }
+        }
 	}
 
 	
